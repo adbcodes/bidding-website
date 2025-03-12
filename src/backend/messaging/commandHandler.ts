@@ -1,10 +1,9 @@
 /**
- * The consumer.run method in Kafka is used to process messages from a Kafka topic. It is typically run continuously to handle incoming 
- * messages as they arrive. Before calling consumer.run, you must subscribe to a topic using the subscribe method. 
- * The subscribe method itself does not read messages; it only specifies the topics of interest. 
+ * The consumer.run method in Kafka is used to process messages from a Kafka topic. It is typically run continuously to handle incoming
+ * messages as they arrive. Before calling consumer.run, you must subscribe to a topic using the subscribe method.
+ * The subscribe method itself does not read messages; it only specifies the topics of interest.
  * The consumer.run method is necessary to actively poll and process messages from the subscribed topics. 1 2
  */
-
 
 import { kafka, TOPICS } from "../config/kafka";
 import {
@@ -23,7 +22,7 @@ export const initializeCommandProcessor = async () => {
   await consumer.connect();
   await consumer.subscribe({ topic: TOPICS.COMMANDS, fromBeginning: false });
   await processMessages();
-  console.log('Command handler initialized');
+  console.log("Command handler initialized");
 };
 
 async function processMessages() {

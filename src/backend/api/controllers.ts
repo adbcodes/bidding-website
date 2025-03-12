@@ -8,20 +8,22 @@ export const bidControllers = {
     try {
       // Get current highest bid
       const highestBids = await dbOperations.getHighestBid(req.body.item_name);
-      const currentHighestBid = highestBids.length > 0 ? highestBids[0].bid_amount : 0;
+      const currentHighestBid =
+        highestBids.length > 0 ? highestBids[0].bid_amount : 0;
 
       // Validate bid amount
       if (req.body.bid_amount <= currentHighestBid) {
-        return res.status(400).json({ 
-          error: `Bid must be higher than current highest bid: ₹${currentHighestBid.toLocaleString("en-IN")}`
+        return res.status(400).json({
+          error: `Bid must be higher than current highest bid: ₹${currentHighestBid.toLocaleString("en-IN")}`,
         });
       }
 
       // Sanitize bidder name
       const sanitizedBid = {
         ...req.body,
-        bidder_name: req.body.bidder_name.charAt(0).toUpperCase() + 
-                     req.body.bidder_name.slice(1).toLowerCase()
+        bidder_name:
+          req.body.bidder_name.charAt(0).toUpperCase() +
+          req.body.bidder_name.slice(1).toLowerCase(),
       };
 
       const command: PlaceBidCommand = {
@@ -50,7 +52,7 @@ export const bidControllers = {
   async getHighestBid(req: Request, res: Response) {
     try {
       const itemName = req.params.itemName;
-      
+
       if (!itemName) {
         return res.status(400).json({ error: "Item name is required" });
       }
@@ -58,7 +60,8 @@ export const bidControllers = {
       const highestBids = await dbOperations.getHighestBid(itemName);
 
       if (highestBids && highestBids.length > 0) {
-        const highestBid = parseInt(highestBids[0].highest_bid);        res.status(200).json({ highestBid });
+        const highestBid = parseInt(highestBids[0].highest_bid);
+        res.status(200).json({ highestBid });
       } else {
         res.status(200).json({ highestBid: null });
       }
@@ -67,5 +70,4 @@ export const bidControllers = {
       res.status(500).json({ error: "Failed to fetch highest bid" });
     }
   },
-
 };

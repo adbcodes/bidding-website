@@ -5,7 +5,7 @@
  */
 
 import { kafka, TOPICS } from "../config/kafka";
-import { Event } from '../models/types';
+import { Event } from "../models/types";
 import { broadcastEvent } from "../api/websocket";
 
 const consumer = kafka.consumer({ groupId: "event-processor" });

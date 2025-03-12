@@ -22,24 +22,29 @@ export const produceCommand = async (command: Command) => {
     });
     console.log(`Command produced: ${command.type}`);
   } catch (error) {
-    console.log('Error while producing bid command: ', error);
+    console.log("Error while producing bid command: ", error);
     throw error;
   }
 };
 
 export const produceEvent = async (event: Event) => {
-    if (!isConnected) {
-        throw new Error("Producer not connected");
-      }
+  if (!isConnected) {
+    throw new Error("Producer not connected");
+  }
 
-    try{
-        producer.send({topic:TOPICS.EVENTS, messages: [{
-            key: event.type,
-            value: JSON.stringify(event)
-        }]});
-        console.log(`Command produced: ${event.type}`);
-    } catch(error){
-        console.log('Error while producing bid command: ', error);
-        throw error;
-    }
+  try {
+    producer.send({
+      topic: TOPICS.EVENTS,
+      messages: [
+        {
+          key: event.type,
+          value: JSON.stringify(event),
+        },
+      ],
+    });
+    console.log(`Command produced: ${event.type}`);
+  } catch (error) {
+    console.log("Error while producing bid command: ", error);
+    throw error;
+  }
 };

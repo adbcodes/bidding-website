@@ -6,7 +6,7 @@ let wsServer: WebSocket.Server;
 
 export const initialiseWebsocket = (server: http.Server) => {
   wsServer = new WebSocket.Server({ server });
-  
+
   wsServer.on("connection", (ws) => {
     console.log("Client connected to WebSocket");
 

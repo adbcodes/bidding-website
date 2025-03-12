@@ -2,9 +2,9 @@
   "name": "kafka-streaming-app",
   "version": "1.0.0",
   "scripts": {
-    "setup": "ts-node src/backend/setupDatabase.ts",
     "start": "ts-node src/backend/server.ts",
     "dev": "nodemon --exec ts-node src/backend/server.ts",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "build": "tsc",
     "watch-ts": "tsc -w"
   },
@@ -23,6 +23,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "prettier": "^3.5.3",
     "ts-node": "^10.9.2"
   }
 }
