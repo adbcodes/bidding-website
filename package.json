@@ -1,0 +1,28 @@
+{
+  "name": "kafka-streaming-app",
+  "version": "1.0.0",
+  "scripts": {
+    "setup": "ts-node src/backend/setupDatabase.ts",
+    "start": "ts-node src/backend/server.ts",
+    "dev": "nodemon --exec ts-node src/backend/server.ts",
+    "build": "tsc",
+    "watch-ts": "tsc -w"
+  },
+  "dependencies": {
+    "@types/node": "^22.13.10",
+    "@types/pg": "^8.11.11",
+    "@types/ws": "^8.18.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.14.0",
+    "websocket": "^1.0.35",
+    "ws": "^8.18.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "ts-node": "^10.9.2"
+  }
+}

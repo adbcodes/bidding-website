@@ -1,0 +1,1 @@
+SELECT * FROM bids ORDER BY created_at DESC;

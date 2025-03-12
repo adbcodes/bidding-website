@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Bidding System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="bidding-section">
+            <h1>Real-time Bidding System</h1>
+            
+            <div class="bid-form">
+                <h2>Submit New Bid</h2>
+                <form id="bidForm">
+                    <div class="form-group">
+                        <label for="itemName">Item Name:</label>
+                        <select id="itemName" required>
+                            <option value="Antique Vase">Antique Vase</option>
+                            <option value="Ruby Necklace">Ruby Necklace</option>
+                            <option value="Signed Bat - Virat Kohli">Signed Bat - Virat Kohli</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bidAmount">Bid Amount:</label>
+                        <input type="number" id="bidAmount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bidderName">Bidder Name:</label>
+                        <input type="text" id="bidderName" required>
+                    </div>
+                    <button type="submit">Submit Bid</button>
+                </form>
+            </div>   
+        </div>
+
+        <div class="items-display">
+            <h2>Items Up for Bidding</h2>
+            <div class="item-card">
+                <div class="item-image">
+                    <img src="images/antiqueVase.png" alt="Antique Vase">
+                </div>
+                <div class="item-details">
+                    <h3>Antique Vase</h3>
+                    <p>A rare antique vase from the Ming Dynasty period.</p>
+                    <p class="current-bid" id="antiqueVase-highest">Current Highest Bid: Loading...</p>
+                </div>
+            </div>
+        
+            <div class="item-card">
+                <div class="item-image">
+                    <img src="images/rubyNecklace.png" alt="Ruby Necklace">
+                </div>
+                <div class="item-details">
+                    <h3>Ruby Necklace</h3>
+                    <p>Exquisite ruby necklace with diamond accents.</p>
+                    <p class="current-bid" id="rubyNecklace-highest">Current Highest Bid: Loading...</p>
+                </div>
+            </div>
+        
+            <div class="item-card">
+                <div class="item-image">
+                    <img src="images/viratBat.png" alt="Signed Bat - Virat Kohli">
+                </div>
+                <div class="item-details">
+                    <h3>Signed Bat - Virat Kohli</h3>
+                    <p>Cricket bat personally signed by Virat Kohli.</p>
+                    <p class="current-bid" id="signedBat-highest">Current Highest Bid: Loading...</p>
+                </div>
+            </div>
+        </div>        
+        
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
